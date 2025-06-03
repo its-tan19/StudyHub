@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+        }
+
+        body{
+           color: white;
+           font-family: 'Roboto', sans-serif;
+           background-color: #020617;
+        }
+
+
+        nav{
+            height: 80px ;
+            background-color: #020617;
+            display: flex;
+            justify-content: space-around;
+             box-shadow: 0 2px 5px rgba(255,255,255,0.1); 
+             align-items: center;
+             position: sticky;
+
+           }
+
+           nav ul{
+            display: flex;
+            justify-content: center;
+           }
+
+          nav ul li{
+            list-style: none;
+            margin: 0 40px;
+            font-size: 20px;
+
+            }
+
+            nav ul li a{
+                color: white;
+                /* border: 1px solid white; */
+                padding: 10px 18px 10px 16px;
+                border-radius: 5px;
+            }
+
+            nav ul li a:hover{
+                background-color: #16214d;
+
+            }
+
+            nav ul  li a:focus{
+                background-color: #16214d;
+            }
+
+            .logo{
+               font-size: 2rem;
+               color: white;
+            }
+
+            .heading{
+              margin: 40px 0 30px 0;
+            text-align: center;
+            color: white;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            position: relative;
+            }
+
+            .heading:hover{
+                text-decoration: underline;
+            }
+            .container{
+                max-width: 1400px;
+                margin: 0  auto;
+                padding: 0 2rem;
+                border: 2px solid greenyellow;
+            }
+            .courses-grid{
+                display:grid;
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                gap: 2rem;
+                margin-bottom: 3rem;
+            }
+            .card{
+            margin: 0 12px 0 10px;
+            background-color: #121934;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            height: fit-content;
+            }
+            .card:hover{
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+            border-color: #2a3a53;
+            }
+            .cardcontent{
+                padding: 1.5rem     ;
+            }
+            .card img{
+                width:100%;
+                height: 200px;
+                object-fit: cover;
+                transition: transform 0.3s ease;
+            }
+            .card:hover img{
+                transform: scale(1.05);
+            }
+            .label{
+                color: #7f8ca0;
+                font-family: 'poppins', sans-serif;
+                font-size: 0.85rem;
+                font-weight: 500;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                margin-bottom: 0.5rem;
+            }
+            .title{
+                color: white;
+                font-size: 1.5rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+                font-family: 'poppins', sans-serif;
+            }
+            .description{
+                color: aliceblue;
+                font-size: 0.95rem;
+                 line-height: 1.6;
+                margin-bottom: 1.5rem;
+            }
+            .marqueecontainer{
+                 color:white; 
+                 background-color: #1a202b; 
+                  padding:10px; 
+                  font-weight:bold;
+                
+                  
+            }
+            .btn{
+
+            background: #1e293b;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.85rem;
+            }
+            .btn:hover{
+            background: #0c234b; 
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(5, 40, 5, 0.4);
+
+            }
+
+            @media (max-width:768px){
+                nav{
+                    flex-direction: column;
+                    height: auto;
+                    padding: 1rem;
+                }
+                nav ul{
+                    margin-top: 1rem;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    gap: 1rem;
+                }
+                .courses-grid{
+                    grid-template-columns: 1fr;
+                    gap:1.5rem;
+
+                }
+                .container{
+                    padding:0 1rem;
+
+                }
+            }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .card {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .card:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+        
+        .card:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+        .footer{
+             background-color: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+            
+
+
+      </style>
+
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html"><div class="logo" id="Home">StudyHub</div></a>
+            <div class="navlink">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="">About Us</a></li>
+                    <li><a href="">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+     <marquee class="marqueecontainer" behavior="scroll" direction="left" scrollamount="5">
+      🎓 Welcome to StudyHub! Stay curious and keep learning. Explore our comprehensive courses and start your coding journey today! 🚀
+    </marquee>
+
+     <div class="contianer">
+     <div class="heading" id="courses">
+        All Courses
+     </div>
+
+  <div class="courses-grid">
+
+    <div class="card">
+        <img src="https://www.codedex.io/images/html/html-parralax-combined.gif" alt="">
+        <div class="cardcontent">
+            <div class="label">Course</div>
+            <h3 class="title">HTML</h3>
+            <p class="description">Create Your First Website Using HTML , the building block  of the web. Dive into the world of web development and  learn the essential markup language</p>
+            <a href="https://www.codedex.io/html"><button class="btn">Start Learning</button></a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://www.codedex.io/images/css/css-course-banner.gif" alt="">
+        <div class="cardcontent">
+            <div class="label">Course</div>
+            <h3 class="title">CSS</h3>
+            <p class="description">Learn selectors, layouts, colors, and animations to start designing beautiful web pages with the styling language of the web – CSS!</p>
+            <a href="https://www.codedex.io/css"><button class="btn">Start Learning</button></a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://www.codedex.io/images/javascript/javascript-course-banner.gif" alt="">
+        <div class="cardcontent">
+            <div class="label">Course</div>
+            <h3 class="title">JavaScript</h3>
+            <p class="description">Learn variables, loops, functions, and events to start building interactive web apps with the programming language of the web – JavaScript!</p>
+            <a href="https://www.codedex.io/javascript"><button class="btn">Start Learning</button></a>
+        </div>
+    </div>
+
+
+    <div class="card">
+        <img src="https://www.codedex.io/images/framework-valley-react/banner.gif" alt="">
+        <div class="cardcontent">
+            <div class="label">Course</div>
+            <h3 class="title">React</h3>
+            <p class="description">Get introduced to CSS, the style sheet language that brings design to the web. Learn to code CSS with Codédex — for free!</p>
+            <a href="https://www.codedex.io/react"><button class="btn">Start Learning</button></a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://cdn.wallpapersafari.com/26/68/CK7JQZ.jpg" alt="">
+        <div class="cardcontent">
+            <div class="label">Course</div>
+            <h3 class="title">Git & GitHub </h3>
+            <p class="description">Learn to use Git for version control, and GitHub to collaborate on projects, track code changes, and contribute to open-source projects</p>
+         <a href="https://www.codedex.io/git-gtihub"><button class="btn">Start Learning</button></a>
+        </div>
+    </div>
+
+     <div class="card">
+        <img src="https://www.codedex.io/images/sql/seo-bannergif.gif" alt="">
+        <div class="cardcontent">
+            <div class="label">Course</div>
+            <h3 class="title">SQL</h3>
+            <p class="description">Learn tables, queries, joins, and functions to start managing and analyzing data with the standard language for databases – SQL!</p>
+            <a href="https://www.codedex.io/sql"><button class="btn">Start Learning</button></a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://www.codedex.io/images/python/python-animated.gif" alt="">
+        <div class="cardcontent">
+            <div class="label">Course</div>
+            <h3 class="title">Python</h3>
+            <p class="description">Learn programming fundamentals such as variables, control flow, and loops with the world's most popular and versatile coding language — Python!</p>
+            <a href="https://www.codedex.io/python"><button class="btn">Start Learning</button></a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://www.codedex.io/images/courses/nodejsbannerseo.png" alt="">
+        <div class="cardcontent">
+            <div class="label">Course</div>
+            <h3 class="title">Nodejs</h3>
+            <p class="description">Combine JavaScript with the power of Node.js—unleash your full-stack potential with server-side programming & dynamic web applications!</p>
+            <a href="https://www.codedex.io/nodejs"><button class="btn">Start Learning</button></a>
+        </div>
+    </div>
+  </div>
+</div>
+<footer class="footer">
+    
+<p>&copy; 2024 StudyHub. All rights reserved. | Made with ❤️ for learners worldwide || Built By Tanishq</p>
+</footer>
+</body>
+</html> 
